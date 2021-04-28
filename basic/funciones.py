@@ -28,7 +28,6 @@ def miFuncion2(nombre='Ricardo'):
     print(nombre)
 
 #miFuncion2('Anahi')
-#miFuncion2()
 
 def miFuncionLista(lista):
     for el in lista:
@@ -46,3 +45,11 @@ def concatenaNombre(lista):
 nombres = concatenaNombre(['Nelly', 'Anahi', 'Ruiz Diaz'])
 
 print(nombres)
+
+def recursion(i):
+    if(i < 1):
+        return i
+    print(i)
+    recursion(i - 1)
+
+recursion(6)
