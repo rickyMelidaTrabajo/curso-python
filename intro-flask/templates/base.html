@@ -1,0 +1,13 @@
+<!-- Esto es enviado desde el archivo hijo que es home.html -->
+<title>{% block title %}{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<body>
+    <nav>
+        <h1>Titulo</h1>
+    </nav>
+    <section class="content">
+        <!-- Esto es enviado desde el archivo hijo que es home.html -->
+        {% block content %}{% endblock %}
+    </section>
+</body>

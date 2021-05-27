@@ -1,0 +1,19 @@
+Un ambiente virtual soluciona el problema cuando tenemos que trabajar con multiples dependencias.
+
+Para instalar Flask debemos de ejecutar los siguientes comandos:
+	py -3 -m venv venv
+	. venv/bin/activate
+
+Para correr el servidor en Flask se ejecuta el siguiente comando:
+	export FLASK_APP=holamundo.py
+	set FLASK_APP=holamundo.py # esto en el caso del SO Window
+
+	export FLASK_ENV=development #esto para que nos pueda hacer el auto watch
+Luego ejecutamos el comando:
+	flask run
+
+Para poder cambiar el ambiente de produccion al de desarrollo, lo hacemos de la siguiente manera:
+	export FLASK_ENV=development
+
+Para poder probar los endpoint desde la terminal
+curl -d "nombre=Ricardo&apellido=Melida" -X POST http://localhost:5000/lolo
