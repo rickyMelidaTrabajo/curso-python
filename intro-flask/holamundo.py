@@ -1,6 +1,18 @@
+from types import TracebackType
 from flask import Flask, request, url_for, redirect, abort, render_template
 
 app = Flask(__name__)
+
+import mysql.connector
+
+mydb = mysql.connector.connect(
+    host="localhost", user="root", password="", database="tareas_electrica"
+)
+
+# Aqui cambiamos la forma en que nos va a entregar los datos
+# en vez de entregar una lista de tuplas
+# ahora nos entrega una lista de diccionarios
+cursor = mydb.cursor(dictionary=True)
 
 
 @app.route("/")
@@ -28,12 +40,15 @@ def lele(data_request):
 
 @app.route("/lolo", methods=["POST", "GET"])
 def lolo():
+    cursor.execute("select * from technician")
+    tecnicos = cursor.fetchall()
     # abort(404)
     # return redirect(url_for("lala", post_id=2))
     # print(request.form['nombre'])
     # print(request.form['apellido'])
     # return render_template("lele.html")
-    return {"username": "Chanchito Feliz", "email": "chanchito@feliz.com"}
+    # return {"username": "Chanchito Feliz", "email": "chanchito@feliz.com"}
+    return render_template("lele.html", tecnicos=tecnicos)
 
 
 @app.route("/home", methods=["GET"])
