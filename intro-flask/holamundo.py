@@ -54,3 +54,19 @@ def lolo():
 @app.route("/home", methods=["GET"])
 def home():
     return render_template("home.html", message="Hello World")
+
+
+@app.route("/crear", methods=["GET", "POST"])
+def crear():
+    if request.method == "POST":
+        nombre = request.form["nombre"]
+        cargo = request.form["cargo"]
+        turno = request.form["turno"]
+        query = "insert into technician(nombre, cargo_t, turno) values(%s, %s,%s)"
+        values = (nombre, cargo, turno)
+        cursor.execute(query, values)
+        mydb.commit()
+
+        # redireccionamos al usuario a lolo
+        return redirect(url_for("lolo"))
+    return render_template("crear.html")
