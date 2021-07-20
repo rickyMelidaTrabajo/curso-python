@@ -1,0 +1,26 @@
+Para poder iniciar el entorno virtual de Python, primeramente lo instalamos con el siguiente comando
+
+    pip install pipenv
+
+Para empezar a utilizarlo lo hacemos con el comando pipenv, con el siguiente comando
+
+    pipenv shell
+
+Para poder instalar paquetes o dependencias solo para modo de desarrolllo, lo hacemos con el
+siguiente comando
+    pipenv install nombre_paquete --dev
+
+Tambien se pueden instalar los paquetes o dependencias agregandolos en un archivo con el nombre 
+requirements.txt y ahi agregar el nombre de su archivo y su version, luego lo ejecutamos con el siguiente
+comando
+    pipenv install -r requirements.txt
+
+
+----------------------------------------------------------------------------
+Tambien se puede crear un entorno virtual con el siguiente comando
+
+virtualenv nombre_de_tu_entorno -p python3
+
+Y lo activamos con el siguiente comando
+
+source nombre_entorno_virtual/bin/activate
