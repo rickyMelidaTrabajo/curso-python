@@ -1,4 +1,5 @@
 import pyrebase
+import os
 
 firebaseConfig = {
     'apiKey': "AIzaSyAV1f-7TKAdwHCqIUtVxf1b3ZDFHQy1Pf0",
@@ -14,7 +15,7 @@ firebase = pyrebase.initialize_app(firebaseConfig)
 
 db = firebase.database()
 #auth = firebase.auth()
-#storage = firebase.storage()
+storage = firebase.storage()
 
 #Autenticacion
 #Login
@@ -44,11 +45,17 @@ db = firebase.database()
 
 #Storage
 #fileName = input('Ingrese el nombre del archivo que desea subir: ')
+fileName = 'images/biggie.png'
 #cloudFileName = input('Ingrese el nombre del archivo en la nube: ')
-#storage.child(cloudFileName).put(fileName)
+cloudFileName = 'biggie/mi-folder'
+storage.child(cloudFileName).put(fileName)
+#try:
+#    os.remove(fileName)
+#except:
+#    print('No se pudo eliminar el archivo')
 
 #Obtenemos la url del archivo que acabamos de subir
-#print(storage.child(cloudFileName).get_url(None))
+print(storage.child(cloudFileName).get_url(None))
 
 #Descargar los archivos del Storga
 #cloudFileName = input('Ingrese el nombre del archivo que desee descargar: ')
@@ -57,9 +64,9 @@ db = firebase.database()
 #Database
 #Create
 data = {
-    'age': 32, 
-    'addres': 'Las Vegas', 
-    'employed': True, 
+    'age': 32,
+    'addres': 'Las Vegas',
+    'employed': True,
     'name':'James Simons'
 }
 
@@ -89,5 +96,5 @@ data = {
 #        db.child('people').child(person.key()).child('age').remove()
 
 #Read
-people = db.child('people').child('-MerFf5JC2d3DHiE9T8i').get()
-print(people.val())
+#people = db.child('people').child('-MerFf5JC2d3DHiE9T8i').get()
+#print(people.val())

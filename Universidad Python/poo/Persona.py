@@ -1,14 +1,25 @@
 class Persona:
-    def __init__(self, nombre, apellido, edad):
+    #con *args podemos recibir tuplas y **kwargs para recibir un diccionario de datos
+    def __init__(self, nombre, apellido, edad, *args, **kwargs):
         self.nombre = nombre
         self.apellido = apellido
         self.edad = edad
+        self.args = args
+        self.kwargs = kwargs
 
-persona1 = Persona('Ricardo', 'Melida', 29)
+    def mostrarDetalle(self):
+        print(f'Objeto Persona: {self.nombre} {self.apellido} {self.edad} {self.args} {self.kwargs}')
 
-print(f'Objeto persona1 : {persona1.nombre} {persona1.apellido} {persona1.edad}')
+persona1 = Persona('Ricardo', 'Melida', 29, '0991470681', 2, 3, 5, m='manzana', p='pera')
+
+
+
+persona1.mostrarDetalle()
+
 
 persona2 = Persona('Anahi', 'Encina', 25)
 
 
-print(f'Objeto persona2 : {persona2.nombre} {persona2.apellido} {persona2.edad}')
+persona2.mostrarDetalle()
+
+
