@@ -1,25 +1,53 @@
 class Persona:
     #con *args podemos recibir tuplas y **kwargs para recibir un diccionario de datos
-    def __init__(self, nombre, apellido, edad, *args, **kwargs):
-        self.nombre = nombre
-        self.apellido = apellido
-        self.edad = edad
-        self.args = args
-        self.kwargs = kwargs
+    #def __init__(self, nombre, apellido, edad, *args, **kwargs):
+    def __init__(self, nombre, apellido, edad):
+        self._nombre = nombre
+        self._apellido = apellido
+        self._edad = edad
+        #self.args = args
+        #self.kwargs = kwargs
+
+    @property
+    def nombre(self):
+        return self._nombre
+
+    @property
+    def apellido(self):
+        return self._apellido
+
+    @property
+    def edad(self):
+        return self_edad
+
+    @nombre.setter
+    def nombre(self, nombre):
+        self._nombre = nombre
+    
+    @apellido.setter
+    def apellido(self, apellido):
+        self._apellido = apellido
+
+    @edad.setter
+    def edad(self, edad):
+        self._edad = edad   
+
 
     def mostrarDetalle(self):
-        print(f'Objeto Persona: {self.nombre} {self.apellido} {self.edad} {self.args} {self.kwargs}')
-
-persona1 = Persona('Ricardo', 'Melida', 29, '0991470681', 2, 3, 5, m='manzana', p='pera')
-
+        #print(f'Objeto Persona: {self._nombre} {self._apellido} {self._edad} {self.args} {self.kwargs}')
+        print(f'Objeto Persona: {self._nombre} {self._apellido} {self._edad}')
 
 
-persona1.mostrarDetalle()
+    #Metodo destructor de la clase Persona
+    def __del__(self):
+        print(f'Persona: {self._nombre} {self._apellido} {self._edad}')
+
+if __name__ == '__main__':
+    persona1 = Persona('Ricardo', 'Melida', 29)
+
+    persona1.mostrarDetalle()
+
+    persona1.nombre = 'Anahi'
 
 
-persona2 = Persona('Anahi', 'Encina', 25)
-
-
-persona2.mostrarDetalle()
-
-
+    persona1.mostrarDetalle()

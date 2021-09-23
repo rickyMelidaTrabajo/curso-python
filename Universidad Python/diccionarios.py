@@ -1,7 +1,7 @@
 data = {
-        'nombre': 'Ricardo',
-        'apellido': 'Melida',
-        'edad': 29
+    'nombre': 'Ricardo',
+    'apellido': 'Melida',
+    'edad': 29
 }
 
 for key, value in data.items():
@@ -17,5 +17,5 @@ for value in data.values():
     print(value)
 
 
-#comprobar existencia de algun elemento
+# comprobar existencia de algun elemento
 print('nombre' in data)
